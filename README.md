@@ -18,11 +18,29 @@ ssh-keygen -t ed25519 -C "name_of_key"
 ssh-copy-id -i ~/.ssh/id_ed25519.pub username@server-address
 ssh username@server-address
 ```
-3. Set up UFW to allow only SSH (port 22) by default. Check that ufw is working with `sudo ufw status verbose`
+3. Set up UFW to allow only SSH (port 22) by default. Check that ufw is working with `sudo ufw status verbose`.
 ```
 sudo apt update
 sudo apt install ufw
 sudo ufw allow 22/tcp
 sudo ufw enable
+```
+4. Update all system packages and configure automatic security updates using unattended-upgrades.
+```
+# Refresh package information
+sudo apt update
+
+# Install current updates and reboot
+sudo apt upgrade
+sudo reboot
+
+# Install automatic-update support
+sudo apt install unattended-upgrades
+
+# Configure automatic security updates
+sudo dpkg-reconfigure unattended-upgrades
+
+# Verify configuration
+cat /etc/apt/apt.conf.d/20auto-upgrades
 ```
 
