@@ -18,7 +18,7 @@ ssh-keygen -t ed25519 -C "name_of_key"
 ssh-copy-id -i ~/.ssh/id_ed25519.pub username@server-address
 ssh username@server-address
 ```
-3. Set up UFW to allow only SSH (port 22) by default.
+3. Set up UFW to allow only SSH (port 22) by default. Check that ufw is working with `sudo ufw status verbose`
 ```
 sudo apt update
 sudo apt install ufw
