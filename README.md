@@ -43,4 +43,37 @@ sudo dpkg-reconfigure unattended-upgrades
 # Verify configuration
 cat /etc/apt/apt.conf.d/20auto-upgrades
 ```
+5. Install and configure Fail2Ban to protect against brute-force SSH attacks.
+```
+sudo apt update
+sudo apt install fail2ban
 
+#verify fail2ban is running
+sudo systemctl status fail2ban
+
+
+#create an ssh jail
+sudo nano /etc/fail2ban/jail.local
+
+#add 
+[sshd]
+enabled = true
+port = 22
+filter = sshd
+backend = systemd
+
+maxretry = 5
+findtime = 10m
+bantime = 1h
+
+
+#check configuration
+sudo fail2ban-client -t
+
+#restart
+sudo systemctl restart fail2ban
+
+#verify everythings working
+sudo systemctl status fail2ban
+sudo fail2ban-client status
+```
