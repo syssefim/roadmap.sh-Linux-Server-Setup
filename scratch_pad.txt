@@ -1,1 +1,66 @@
 ssh root@172.234.231.66
+
+# to switch users
+su - your_user_name
+
+# to exit current user
+exit
+
+
+
+# to check status of ufw
+sudo ufw status verbose
+
+
+# show all active jails
+sudo fail2ban-client status
+
+# show ssh jail information
+sudo fail2ban-client status sshd
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Basic Hardening
+
+
+sudo apt update
+sudo apt install fail2ban
+
+#verify fail2ban is running
+sudo systemctl status fail2ban
+
+
+#create an ssh jail
+sudo nano /etc/fail2ban/jail.local
+
+#add 
+[sshd]
+enabled = true
+port = 22
+filter = sshd
+backend = systemd
+
+maxretry = 5
+findtime = 10m
+bantime = 1h
+
+#check configuration
+sudo fail2ban-client -t
+
+#restart
+sudo systemctl restart fail2ban
+
+#verify everythings working
+sudo systemctl status fail2ban
+sudo fail2ban-client status
