@@ -77,3 +77,7 @@ sudo systemctl restart fail2ban
 sudo systemctl status fail2ban
 sudo fail2ban-client status
 ```
+6. Set the correct timezone and a meaningful hostname.
+```
+sudo timedatectl set-timezone America/Los_Angeles
+```
