@@ -80,4 +80,5 @@ sudo fail2ban-client status
 6. Set the correct timezone and a meaningful hostname.
 ```
 sudo timedatectl set-timezone America/Los_Angeles
+sudo hostnamectl set-hostname new_server_name
 ```
