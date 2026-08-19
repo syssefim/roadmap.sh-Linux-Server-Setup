@@ -82,3 +82,24 @@ sudo fail2ban-client status
 sudo timedatectl set-timezone America/Los_Angeles
 sudo hostnamectl set-hostname new_server_name
 ```
+7. Demonstrate basic systemctl commands.
+```
+#check status of a service 
+sudo systemctl status SERVICE
+
+#stop service
+sudo systemctl stop SERVICE
+
+#start service
+sudo systemctl start SERVICE
+
+#restart service
+sudo systemctl restart SERVICE
+
+#enable service at boot
+sudo systemctl enable SERVICE
+
+#prevent from automatically starting after a reboot
+sudo systemctl disable SERVICE
+```
+8. Use journalctl to view system logs and locate common log files in /var/log/.
