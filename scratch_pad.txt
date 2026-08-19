@@ -35,3 +35,38 @@ hostnamectl
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#check status of a service 
+sudo systemctl status SERVICE
+
+#stop service
+sudo systemctl stop SERVICE
+
+#start service
+sudo systemctl start SERVICE
+
+#restart service
+sudo systemctl restart SERVICE
+
+#enable service at boot
+sudo systemctl enable SERVICE
+
+#prevent from automatically starting after a reboot
+sudo systemctl disable SERVICE
+
+
+
