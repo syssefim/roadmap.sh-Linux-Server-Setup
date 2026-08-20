@@ -121,21 +121,14 @@ sudo journalctl -u fail2ban
 ```
 9. Complete a security checklist confirming all configurations are in place and working correctly.
 ```
-# 1. Verify the non-root sudo user
 whoami
-groups
 sudo whoami
-
-# 2. Verify SSH key authentication
-ls -la ~/.ssh
-cat ~/.ssh/authorized_keys
-
-# 3. Verify the firewall
+sudo sshd -T | grep -E 'passwordauthentication|pubkeyauthentication'
 sudo ufw status verbose
-
-# 4. Verify system updates
-sudo apt update
-apt list --upgradable
-
-# 5. Verify Fail2Ban
+sudo systemctl is-active ssh
+sudo systemctl is-active fail2ban
+sudo fail2ban-client status sshd
+hostnamectl
+timedatectl
+sudo journalctl -u ssh --since "today"
 ```
