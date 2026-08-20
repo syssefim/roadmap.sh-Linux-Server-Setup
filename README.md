@@ -119,3 +119,23 @@ sudo tail -n 50 /var/log/auth.log
 # 5. Inspect Fail2Ban logs
 sudo journalctl -u fail2ban
 ```
+9. Complete a security checklist confirming all configurations are in place and working correctly.
+```
+# 1. Verify the non-root sudo user
+whoami
+groups
+sudo whoami
+
+# 2. Verify SSH key authentication
+ls -la ~/.ssh
+cat ~/.ssh/authorized_keys
+
+# 3. Verify the firewall
+sudo ufw status verbose
+
+# 4. Verify system updates
+sudo apt update
+apt list --upgradable
+
+# 5. Verify Fail2Ban
+```
