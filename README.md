@@ -103,3 +103,19 @@ sudo systemctl enable SERVICE
 sudo systemctl disable SERVICE
 ```
 8. Use journalctl to view system logs and locate common log files in /var/log/.
+```
+# 1. View logs from this boot
+sudo journalctl -b
+
+# 2. View SSH service logs
+sudo journalctl -u ssh --since "today"
+
+# 3. Locate traditional Linux log files
+sudo ls -lah /var/log/
+
+# 4. Inspect authentication/SSH logs
+sudo tail -n 50 /var/log/auth.log
+
+# 5. Inspect Fail2Ban logs
+sudo journalctl -u fail2ban
+```
