@@ -9,7 +9,7 @@ A Linux server configured with essential security measures and settings that eve
 ## 🛠️ Setup
 1. Create a non-root user with sudo privileges.
 ```
-add your_new_username
+adduser your_new_username
 usermod -aG sudo your_new_username
 ```
 2. Set up SSH key-based authentication and disable password-based login.
@@ -17,6 +17,12 @@ usermod -aG sudo your_new_username
 ssh-keygen -t ed25519 -C "name_of_key"
 ssh-copy-id -i ~/.ssh/id_ed25519.pub username@server-address
 ssh username@server-address
+
+# To disable password authentication nano into sshd_config
+sudo nano /etc/ssh/sshd_config
+
+# Set PasswordAuthentication to no
+PasswordAuthentication no
 ```
 3. Set up UFW to allow only SSH (port 22) by default. Check that ufw is working with `sudo ufw status verbose`.
 ```
@@ -27,10 +33,7 @@ sudo ufw enable
 ```
 4. Update all system packages and configure automatic security updates using unattended-upgrades.
 ```
-# Refresh package information
 sudo apt update
-
-# Install current updates and reboot
 sudo apt upgrade
 sudo reboot
 
