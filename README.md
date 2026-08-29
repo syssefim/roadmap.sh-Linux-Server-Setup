@@ -135,3 +135,17 @@ hostnamectl
 timedatectl
 sudo journalctl -u ssh --since "today"
 ```
+
+
+
+---
+
+<div align="center">
+  <p>
+    Serafim Sharkov • 2026
+  </p>
+  <p>
+    <a href="https://github.com/syssefim">GitHub</a> • 
+    <a href="https://www.linkedin.com/in/serafim-sharkov/">LinkedIn</a>
+  </p>
+</div>
